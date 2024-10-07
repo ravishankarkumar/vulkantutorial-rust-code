@@ -1,0 +1,11 @@
+[package]
+name = "vulkantutorial-rust-code"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ash = "0.38.0"
+
+[[bin]]
+name = "00"
+path = "src/tutorials/instance/01_1_vulkan_instance.rs"
