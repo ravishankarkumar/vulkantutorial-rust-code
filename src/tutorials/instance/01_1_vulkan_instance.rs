@@ -1,5 +1,5 @@
-use std::ffi::CString;
 use ash::{vk, Entry, Instance};
+use std::ffi::CString;
 
 fn main() {
     let entry = unsafe { Entry::load().expect("Failed to create entry.") };
@@ -16,7 +16,7 @@ fn create_instance(entry: &Entry) -> Instance {
         .application_version(vk::make_api_version(0, 0, 1, 0))
         .engine_name(engine_name.as_c_str())
         .engine_version(vk::make_api_version(0, 0, 1, 0))
-        .api_version(vk::make_api_version(0, 1, 0, 0));
+        .api_version(vk::make_api_version(0, 1, 3, 290));
 
     let mut extension_names: Vec<*const i8> = Vec::new();
 
@@ -24,7 +24,7 @@ fn create_instance(entry: &Entry) -> Instance {
     {
         extension_names.push(ash::khr::portability_enumeration::NAME.as_ptr());
         // Enabling this extension is a requirement when using `VK_KHR_portability_subset`
-        extension_names.push(ash::khr::get_physical_device_properties2::NAME.as_ptr());
+        // extension_names.push(ash::khr::get_physical_device_properties2::NAME.as_ptr());
     }
 
     let create_flags = if cfg!(any(target_os = "macos", target_os = "ios")) {
