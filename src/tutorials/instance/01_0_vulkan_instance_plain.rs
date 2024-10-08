@@ -1,5 +1,4 @@
 use ash::{vk, Entry, Instance};
-use std::ffi::CString;
 
 fn main() {
     let entry = unsafe { Entry::load().expect("Failed to create entry.") };
@@ -13,9 +12,9 @@ fn create_instance(entry: &Entry) -> Instance {
         api_version: vk::make_api_version(0, 1, 0, 0),
         ..Default::default()
     };
-    let create_info = vk::InstanceCreateInfo {
+    let instance_create_info = vk::InstanceCreateInfo {
         p_application_info: &app_info,
         ..Default::default()
     };
-    unsafe { entry.create_instance(&create_info, None).unwrap() }
+    unsafe { entry.create_instance(&instance_create_info, None).unwrap() }
 }

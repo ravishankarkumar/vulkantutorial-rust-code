@@ -16,10 +16,9 @@ fn create_instance(entry: &Entry) -> Instance {
         .application_version(vk::make_api_version(0, 0, 1, 0))
         .engine_name(engine_name.as_c_str())
         .engine_version(vk::make_api_version(0, 0, 1, 0))
-        .api_version(vk::make_api_version(0, 1, 3, 290));
+        .api_version(vk::make_api_version(0, 1, 2, 0));
 
     let mut extension_names: Vec<*const i8> = Vec::new();
-
     #[cfg(any(target_os = "macos", target_os = "ios"))]
     {
         extension_names.push(ash::khr::portability_enumeration::NAME.as_ptr());
