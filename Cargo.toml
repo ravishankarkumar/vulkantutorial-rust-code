@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 ash = "0.38.0"
+log = "0.4.22"
 
 [[bin]]
 name = "01_0"
@@ -13,3 +14,7 @@ path = "src/tutorials/instance/01_0_vulkan_instance_plain.rs"
 [[bin]]
 name = "01_1"
 path = "src/tutorials/instance/01_1_vulkan_instance.rs"
+
+[[bin]]
+name = "02"
+path = "src/tutorials/02_validation_layers.rs"
